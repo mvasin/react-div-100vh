@@ -1,6 +1,6 @@
 {
   "name": "react-div-100vh",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A React component that aims to solve '100vh' issue in mobile browsers",
   "main": "lib/index.js",
   "scripts": {
