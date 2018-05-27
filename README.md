@@ -25,4 +25,4 @@ No need to specify any `height` css on `Div100vh`, it will be overriden in javas
 Please note that you most likely will want to set `body {margin: 0}` css, unless you use some css reset that does it for you.
 
 ## Demo
-https://github.com/mvasin/react-div-100vh/settings
+https://mvasin.github.io/react-div-100vh/
