@@ -8,7 +8,7 @@ More on this issue [here](https://nicolas-hoizey.com/2015/02/viewport-height-is-
 
 ## API
 - Install it: `npm install --save react-div-100vh` or `yarn add react-div-100vh`
-- Import it: `import Div100vh from 'react-div-100vh`
+- Import it: `import Div100vh from 'react-div-100vh'`
 - Then wrap your stuff with `<Div100vh>` as you would with a normal `<div style={{height: '100vh'}}>`, but this time mobile browsers should display the whole page on load:
 ```
 <div>
