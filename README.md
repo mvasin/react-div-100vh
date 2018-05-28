@@ -14,7 +14,7 @@ import Div100vh from 'react-div-100vh'
 
 const MyFullscreenComponent = () => (
   <Div100vh>
-    <p>Your stuff goes here</p>
+    <marquee>Your stuff goes here</marquee>
   </Div100vh>
 )
 ```
