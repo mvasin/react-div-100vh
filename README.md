@@ -12,7 +12,7 @@ More on this issue [here](https://nicolas-hoizey.com/2015/02/viewport-height-is-
 ```
 import Div100vh from 'react-div-100vh'
 
-const MyComponent = () => (
+const MyFullscreenComponent = () => (
   <Div100vh>
     <p>Your stuff goes here</p>
   </Div100vh>
