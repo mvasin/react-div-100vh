@@ -8,17 +8,15 @@ More on this issue [here](https://nicolas-hoizey.com/2015/02/viewport-height-is-
 
 ## API
 - Install it: `npm install --save react-div-100vh` or `yarn add react-div-100vh`
-- Import it: `import Div100vh from 'react-div-100vh'`
-- Then wrap your stuff with `<Div100vh>` as you would with a normal `<div style={{height: '100vh'}}>`, but this time mobile browsers should display the whole page on load:
+- Then import the component and wrap your stuff with `<Div100vh>` as you would with a normal `<div style={{height: '100vh'}}>`, but this time mobile browsers should display the whole page on load:
 ```
-<div>
+import Div100vh from 'react-div-100vh'
+
+const MyComponent = () => (
   <Div100vh>
-    <div>
-      This is a 100vh div that avoids iOS and other mobile browser 100vh crop issue.
-    </div>
+    <p>Your stuff goes here</p>
   </Div100vh>
-  <div>This goes after full window height div</div>
-</div>
+)
 ```
 No need to specify any `height` css on `Div100vh`, it will be overriden in javascript anyway.
 
