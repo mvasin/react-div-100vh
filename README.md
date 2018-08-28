@@ -1,4 +1,5 @@
 # `Div100vh` React component
+[![CircleCI](https://circleci.com/gh/mvasin/react-div-100vh.svg?style=svg&circle-token=cd3f9e7031e393880d945af301841db926000ec4)](https://circleci.com/gh/mvasin/react-div-100vh)
 This is a workaround for iOS Safari and other mobile browsers.
 
 At the top of the page, those browsers cover bottom of `100vh` page with "browser chrome" (navigation/context buttons), effectively cropping it. If you have something important at the bottom of your splash screen, chances are it will not be visible/available untill a user scrolls.
