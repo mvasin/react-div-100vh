@@ -6,7 +6,7 @@ import "./styles.css";
 function Demo() {
   return (
     <div>
-      <Div100vh style={{ background: 'pink', display: 'flex', flexDirection: 'column' }}>
+      <Div100vh style={{ background: 'pink', display: 'flex', flexDirection: 'column', height: '100rvh', minHeight: '100rvh' }}>
         <div style={{flex: 'auto', padding: '1rem'}}>
           <h1>The Div100vh component demo</h1>
           <p>Div100vh component tries to avoid cropping of the bottom of the fullscreen splash page by mobile browsers.</p>
