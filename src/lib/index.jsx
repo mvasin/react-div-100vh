@@ -51,11 +51,11 @@ class Div100vh extends React.Component {
 
   componentDidMount() {
     this.computeRvhStyles();
-    window.addEventListener('resize', this.computeRvhStyles);
+    window.addEventListener('resize', this.computeRvhStyles, false);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.computeRvhStyles);
+    window.removeEventListener('resize', this.computeRvhStyles, false);
   }
 
   render() {
