@@ -5,7 +5,9 @@ const rvhRegex = /(\d+(\.\d*)?)rvh\s*$/;
 class Div100vh extends React.Component {
   constructor() {
     super();
-    this.myRef = React.createRef();
+    this.myRef = React.createRef ?
+      React.createRef() :
+      null;
     this.computeRvhStyles = this.computeRvhStyles.bind(this);
   }
 
@@ -40,7 +42,15 @@ class Div100vh extends React.Component {
   }
 
   render() {
-    return <div ref={this.myRef} {...this.props} />;
+    return (
+      <div
+        ref={
+          this.myRef ||
+            (el => this.myRef = el)
+        }
+        {...this.props}
+      />
+    );
   }
 }
 
