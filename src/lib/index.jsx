@@ -5,22 +5,13 @@ const rvhRegex = /(\d+(\.\d*)?)rvh\s*$/;
 class Div100vh extends React.Component {
   constructor(props) {
     super(props);
-    this.myRef = React.createRef ?
-      React.createRef() :
-      null;
+    this.myRef = null;
     this.computeRvhStyles = this.computeRvhStyles.bind(this);
   }
 
-  getRef() {
-    return this.myRef ?
-      (this.myRef.current || this.myRef) :
-      null;
-  }
-
   setNodeHeightToWindowInnerHeight() {
-    const node = this.getRef();
-    return node ?
-      node.style.height = window.innerHeight + 'px' :
+    return this.myRef ?
+      this.myRef.style.height = window.innerHeight + 'px' :
       null;
   }
 
@@ -31,15 +22,14 @@ class Div100vh extends React.Component {
     }
 
     let rvhPropertyFound = false;
-    const node = this.getRef();
 
     Object.entries(this.props.style).forEach(([property, rawValue]) => {
       const match = rvhRegex.exec(rawValue);
-      if (node && match != null) {
+      if (this.myRef && match != null) {
         rvhPropertyFound = true;
         // Guarantee that this only runs for numbers
         const extractedValue = parseFloat(match[0]);
-        node.style[property] = extractedValue / 100 * window.innerHeight + 'px';
+        this.myRef.style[property] = extractedValue / 100 * window.innerHeight + 'px';
       }
     });
 
@@ -61,10 +51,7 @@ class Div100vh extends React.Component {
   render() {
     return (
       <div
-        ref={
-          this.myRef ||
-            (el => this.myRef = el)
-        }
+        ref={el => this.myRef = el}
         {...this.props}
       />
     );
