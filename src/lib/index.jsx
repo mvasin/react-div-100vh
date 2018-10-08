@@ -5,38 +5,42 @@ const rvhRegex = /(\d+(\.\d*)?)rvh\s*$/;
 class Div100vh extends React.Component {
   constructor(props) {
     super(props);
-    this.myRef = null;
+    this.state = { style: { } };
     this.computeRvhStyles = this.computeRvhStyles.bind(this);
-  }
-
-  setNodeHeightToWindowInnerHeight() {
-    return this.myRef ?
-      this.myRef.style.height = window.innerHeight + 'px' :
-      null;
   }
 
   // On window resize, recalculate any rvh unit style properties
   computeRvhStyles() {
-    if (!this.props.style) {
-      return this.setNodeHeightToWindowInnerHeight();
-    }
+    const userDefinedStyle = this.props.style || {
+      height: `${window.innerHeight}px`,
+    };
 
-    let rvhPropertyFound = false;
+    const { rvhPropertyFound, style } = Object.entries(userDefinedStyle)
+      .reduce(({ rvhPropertyFound, style }, [property, rawValue]) => {
+        const match = rvhRegex.exec(rawValue);
+        if (match != null) {
+          // Guarantee that this only runs for numbers
+          const extractedValue = parseFloat(match[0]);
+          const parsedValue = extractedValue / 100 * window.innerHeight + 'px';
 
-    Object.entries(this.props.style).forEach(([property, rawValue]) => {
-      const match = rvhRegex.exec(rawValue);
-      if (this.myRef && match != null) {
-        rvhPropertyFound = true;
-        // Guarantee that this only runs for numbers
-        const extractedValue = parseFloat(match[0]);
-        this.myRef.style[property] = extractedValue / 100 * window.innerHeight + 'px';
-      }
-    });
+          return {
+            rvhPropertyFound: true,
+            style: Object.assign({}, style, { [property]: parsedValue }),
+          };
+        }
+        return {
+          rvhPropertyFound,
+          style: Object.assign({}, style, { [property]: rawValue }),
+        };
+      }, {});
 
-    // Default to height 100vh if no rvh found in style
-    if (!rvhPropertyFound) {
-      this.setNodeHeightToWindowInnerHeight();
-    }
+    const updatedStyle = rvhPropertyFound ? style : Object.assign(
+      {},
+      { height: `${window.innerHeight}px` },
+      style,
+    );
+
+    this.setState({ style: updatedStyle });
   }
 
   componentDidMount() {
@@ -49,10 +53,11 @@ class Div100vh extends React.Component {
   }
 
   render() {
+    const { style } = this.state;
     return (
       <div
-        ref={el => this.myRef = el}
         {...this.props}
+        style={style}
       />
     );
   }
