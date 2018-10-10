@@ -9,9 +9,7 @@ class Div100vh extends React.Component {
 
   // On window resize, recalculate any rvh unit style properties
   computeRvhStyles = () => {
-    const userDefinedStyle = this.props.style || {
-      height: `${window.innerHeight}px`,
-    };
+    const userDefinedStyle = this.props.style || {};
 
     const { rvhPropertyFound, style } = Object.entries(userDefinedStyle)
       .reduce(({ rvhPropertyFound, style }, [property, rawValue]) => {
@@ -23,20 +21,19 @@ class Div100vh extends React.Component {
 
           return {
             rvhPropertyFound: true,
-            style: Object.assign({}, style, { [property]: parsedValue }),
+            style: { ...style, [property]: parsedValue },
           };
         }
         return {
           rvhPropertyFound,
-          style: Object.assign({}, style, { [property]: rawValue }),
+          style: { ...style, [property]: rawValue },
         };
       }, {});
 
-    const updatedStyle = rvhPropertyFound ? style : Object.assign(
-      {},
-      { height: `${window.innerHeight}px` },
-      style,
-    );
+    const updatedStyle = rvhPropertyFound ? style : {
+      height: `${window.innerHeight}px`,
+      ...style,
+    };
 
     this.setState({ style: updatedStyle });
   }
