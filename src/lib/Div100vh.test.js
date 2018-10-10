@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import Div100vh from './index.jsx'
+import Div100vh, { parseStylesAndConvertRvhToPx } from './index.jsx'
 
 const renderComponent = props => renderer.create(
   <Div100vh {...props} />,
@@ -56,5 +56,10 @@ describe('When component mounts and/or resizes', () => {
         });
       });
     });
+  });
+});
+
+xdescribe('parseStylesAndConvertRvhToPx', () => {
+  test('pending', () => {
   });
 });

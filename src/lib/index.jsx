@@ -2,31 +2,33 @@ import React from 'react';
 
 const rvhRegex = /(\d+(\.\d*)?)rvh\s*$/;
 
+export const parseStylesAndConvertRvhToPx = (rawValue) => {
+  const match = rvhRegex.exec(rawValue) || [];
+  const parsedMatch = parseFloat(match[0], 10);
+  const validRvhProperty = parsedMatch && !Number.isNaN(parsedMatch);
+  return {
+    validRvhProperty,
+    value: validRvhProperty ?
+      `${parsedMatch / 100 * window.innerHeight}px` :
+      rawValue,
+  };
+};
+
 class Div100vh extends React.Component {
   state = {
     style: {},
   };
 
   // On window resize, recalculate any rvh unit style properties
-  computeRvhStyles = () => {
+  updateStyle = () => {
     const userDefinedStyle = this.props.style || {};
 
     const { rvhPropertyFound, style } = Object.entries(userDefinedStyle)
       .reduce(({ rvhPropertyFound, style }, [property, rawValue]) => {
-        const match = rvhRegex.exec(rawValue);
-        if (match != null) {
-          // Guarantee that this only runs for numbers
-          const extractedValue = parseFloat(match[0]);
-          const parsedValue = extractedValue / 100 * window.innerHeight + 'px';
-
-          return {
-            rvhPropertyFound: true,
-            style: { ...style, [property]: parsedValue },
-          };
-        }
+        const { validRvhProperty, value } = parseStylesAndConvertRvhToPx(rawValue);
         return {
-          rvhPropertyFound,
-          style: { ...style, [property]: rawValue },
+          rvhPropertyFound: rvhPropertyFound || validRvhProperty,
+          style: { ...style, [property]: value },
         };
       }, {});
 
@@ -39,12 +41,12 @@ class Div100vh extends React.Component {
   }
 
   componentDidMount() {
-    this.computeRvhStyles();
-    window.addEventListener('resize', this.computeRvhStyles);
+    this.updateStyle();
+    window.addEventListener('resize', this.updateStyle);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.computeRvhStyles);
+    window.removeEventListener('resize', this.updateStyle);
   }
 
   render() {
