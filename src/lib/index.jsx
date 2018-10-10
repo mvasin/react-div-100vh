@@ -3,14 +3,12 @@ import React from 'react';
 const rvhRegex = /(\d+(\.\d*)?)rvh\s*$/;
 
 class Div100vh extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { style: { } };
-    this.computeRvhStyles = this.computeRvhStyles.bind(this);
-  }
+  state = {
+    style: {},
+  };
 
   // On window resize, recalculate any rvh unit style properties
-  computeRvhStyles() {
+  computeRvhStyles = () => {
     const userDefinedStyle = this.props.style || {
       height: `${window.innerHeight}px`,
     };
@@ -45,19 +43,18 @@ class Div100vh extends React.Component {
 
   componentDidMount() {
     this.computeRvhStyles();
-    window.addEventListener('resize', this.computeRvhStyles, false);
+    window.addEventListener('resize', this.computeRvhStyles);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.computeRvhStyles, false);
+    window.removeEventListener('resize', this.computeRvhStyles);
   }
 
   render() {
-    const { style } = this.state;
     return (
       <div
         {...this.props}
-        style={style}
+        style={this.state.style}
       />
     );
   }
