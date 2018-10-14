@@ -39,7 +39,7 @@ If you don't pass an object to the `style` prop, it works as if you specified `{
 <Div100vh style={{height: '100rvh'}}>
 ```
 
-If you do pass anything to the `style` prop, no implicit style is applied, so you're on your own. You can do something like:
+If you do pass anything to the `style` prop, no implicit style is applied. You can do something like:
 ```
 <Div100vh
   style={{maxHeight: '70rvh', color: 'blue'}}
