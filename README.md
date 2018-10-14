@@ -53,7 +53,7 @@ The rest of the props are passed through to the underlying `div` unchanged.
 
 ## Additional considerations
 
-Please note that you most likely will want to set `body {margin: 0}` css, unless you use some css reset that does it for you.
+Please note that most likely you will want to set `body {margin: 0}` css, unless you use some css reset that does it for you.
 
 ## Demo
 https://mvasin.github.io/react-div-100vh/
