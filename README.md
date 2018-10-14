@@ -34,7 +34,7 @@ If you want to set the min-height (or any other property) instead, you can use s
   </Div100vh>
 ```
 
-Of you don't pass an object to the `style` prop, it works as if you specified `{height: '100rvh'}`:
+If you don't pass an object to the `style` prop, it works as if you specified `{height: '100rvh'}`:
 ```
 <Div100vh style={{height: '100rvh'}}>
 ```
