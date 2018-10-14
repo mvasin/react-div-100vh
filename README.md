@@ -23,7 +23,6 @@ const MyFullscreenComponent = () => (
   </Div100vh>
 )
 ```
-No need to specify any height css on `Div100vh`, it will be overriden in javascript anyway.
 
 ### Using `rvh` units
 
