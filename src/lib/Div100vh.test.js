@@ -1,12 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Div100vh from './Div100vh';
+import getWindowHeight from './getWindowHeight';
 
-// I wonder why this doesn't work?
-// const getWindowHeight = jest.fn();
-// getWindowHeight.mockReturnValue(1000);
-// so I have to use this instead
-window.innerHeight = 1000;
+jest.mock('./getWindowHeight', () => jest.fn());
+getWindowHeight.mockReturnValue(1000);
 
 const renderComponent = props => renderer.create(<Div100vh {...props} />);
 const getDivProps = component => component.root.findByType('div').props;
