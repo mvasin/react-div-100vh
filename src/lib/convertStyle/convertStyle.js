@@ -1,8 +1,5 @@
 import getType from 'jest-get-type';
 
-export const overrideWarning =
-  'Div100vh works by specifying its own inline style height property. Your height property will be overriden. Omit it or use special `rvh` units, which are described in the readme.';
-
 export function containsRvh(propertyValue) {
   // TODO: when regexp is lifted up the lexical scope, to be used
   // in both `containsRvh` and `replaceRvhWithPx`, some tests start to

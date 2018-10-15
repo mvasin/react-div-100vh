@@ -1,4 +1,4 @@
-import convertStyle, { overrideWarning, containsRvh } from './convertStyle';
+import convertStyle, { containsRvh } from './convertStyle';
 
 describe('rvh detection in a CSS property value', () => {
   it('detects a single rvh value', () => {
