@@ -1,2 +1,7 @@
 node_modules
 /lib
+
+# vim .sw files
+*.sw*
+
+/docs
