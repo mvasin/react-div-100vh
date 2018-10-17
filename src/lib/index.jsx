@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const rvhRegex = /(\d+(\.\d*)?)rvh\s*$/;
 
@@ -11,9 +11,13 @@ class Div100vh extends React.Component {
 
   // On window resize, recalculate any rvh unit style properties
   computeRvhStyles() {
-    if (!this.props.style) return;
-
     const node = this.myRef.current;
+
+    if (!this.props.style) {
+      node.style.height = window.innerHeight + "px";
+      return;
+    }
+
     let rvhPropertyFound = false;
     Object.entries(this.props.style).forEach(([property, rawValue]) => {
       const match = rvhRegex.exec(rawValue);
@@ -21,22 +25,24 @@ class Div100vh extends React.Component {
         rvhPropertyFound = true;
         // Guarantee that this only runs for numbers
         const extractedValue = parseFloat(match[0]);
-        node.style[property] = extractedValue / 100 * window.innerHeight + 'px';
+        node.style[property] =
+          (extractedValue / 100) * window.innerHeight + "px";
       }
     });
+
     // Default to height 100vh if no rvh found in style
     if (!rvhPropertyFound) {
-      node.style.height = window.innerHeight + 'px';
+      node.style.height = window.innerHeight + "px";
     }
   }
 
   componentDidMount() {
     this.computeRvhStyles();
-    window.addEventListener('resize', this.computeRvhStyles);
+    window.addEventListener("resize", this.computeRvhStyles);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.computeRvhStyles);
+    window.removeEventListener("resize", this.computeRvhStyles);
   }
 
   render() {
