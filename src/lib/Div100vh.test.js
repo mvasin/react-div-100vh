@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import Div100vh from './Div100vh';
 import getWindowHeight from './getWindowHeight';
 
-jest.mock('./getWindowHeight', () => jest.fn());
+jest.mock('./getWindowHeight');
 getWindowHeight.mockReturnValue(1000);
 
 const renderComponent = props => renderer.create(<Div100vh {...props} />);
