@@ -17,7 +17,7 @@ More on this issue [here](https://nicolas-hoizey.com/2015/02/viewport-height-is-
 | ![Page cropped by bottom Safari chrome](https://raw.githubusercontent.com/mvasin/react-div-100vh/master/images/regular-div.png) | ![Page cropped by bottom Safari chrome](https://raw.githubusercontent.com/mvasin/react-div-100vh/master/images/react-div-100vh.png) |
 
 ### The demo
-https://react-div-100vh.netlify.com
+Browse https://react-div-100vh.netlify.com on your phone!
 
 ## API
 - Install it: `npm install --save react-div-100vh` or `yarn add react-div-100vh`
