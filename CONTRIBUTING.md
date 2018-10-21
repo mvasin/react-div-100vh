@@ -1,0 +1,1 @@
+Pull requests are absolutely welcome. One request though: please write your code in test driven development style. Start with a failing test that illustrates the issue, and then fix it with actual code.
