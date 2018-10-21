@@ -5,7 +5,7 @@ This is a workaround for iOS Safari and other mobile browsers.
 
 ## The problem
 
-At the top of the page, mobile browsers cover bottom of `100vh` page with "browser chrome" (that's the name for browser navigation/context buttons, don't confuse with the browser from Google), effectively cropping it. If you have something important at the bottom of your splash screen, chances are it will not be visible/available until a user scrolls.
+At the top of the page, mobile browsers cover bottom of `100vh` page with "browser chrome" (that's the name for browser navigation/context buttons, don't confuse with the browser from Google), effectively cropping it. If you have something important at the bottom of your splash screen, chances are it will not be visible/available until user scrolls.
 
 More on this issue [here](https://nicolas-hoizey.com/2015/02/viewport-height-is-taller-than-the-visible-part-of-the-document-in-some-mobile-browsers.html
 ).
@@ -49,7 +49,8 @@ If you don't specify `style` prop, it works as if you specified `{height: '100rv
 `<Div100vh>` is equivalent to `<Div100vh style={{height: '100rvh'}}>`.
 
 If you do pass anything to the `style` prop, no implicit style is applied. You can do something like:
-```
+
+```jsx
 <Div100vh
   style={{maxHeight: '70rvh', color: 'blue'}}
   onClick={() => console.log('hi')}
@@ -58,7 +59,7 @@ If you do pass anything to the `style` prop, no implicit style is applied. You c
 </Div100vh>
 ```
 
-The rest of the props are passed through to the underlying `div` that `Div100vh` renders unchanged.
+The rest of the props are passed unchanged to the underlying `div` that `Div100vh` renders.
 
 ## Additional considerations
 
