@@ -5,7 +5,7 @@ This is a workaround for iOS Safari and other mobile browsers.
 
 ## The problem
 
-At the top of the page, those browsers cover bottom of `100vh` page with "browser chrome" (that's the name for browser navigation/context buttons, don't confuse with the browser from Google), effectively cropping it. If you have something important at the bottom of your splash screen, chances are it will not be visible/available until a user scrolls.
+At the top of the page, mobile browsers cover bottom of `100vh` page with "browser chrome" (that's the name for browser navigation/context buttons, don't confuse with the browser from Google), effectively cropping it. If you have something important at the bottom of your splash screen, chances are it will not be visible/available until a user scrolls.
 
 More on this issue [here](https://nicolas-hoizey.com/2015/02/viewport-height-is-taller-than-the-visible-part-of-the-document-in-some-mobile-browsers.html
 ).
@@ -21,7 +21,7 @@ https://react-div-100vh.netlify.com
 
 ## API
 - Install it: `npm install --save react-div-100vh` or `yarn add react-div-100vh`
-- Then import the component and wrap your stuff with `<Div100vh>` as you would with a normal `<div style={{height: '100vh'}}>`, but this time mobile browsers should display the whole page on load:
+- Import the component and wrap your stuff with `<Div100vh>` as you would with a normal `<div style={{height: '100vh'}}>`, but this time mobile browsers should display the whole page on load:
 
 ### The default behavior
 
@@ -37,18 +37,16 @@ const MyFullscreenComponent = () => (
 
 ### Using `rvh` units
 
-If you want to set the min-height (or any other property) instead, you can use special `rvh` ("real viewport height") units in values of a regular `style` object passed to `style` prop. `Div100vh` will find any style declarations with this unit and calculate the value as a percentage of `window.innerHeight`:
+If you want to set `min-height` (or any other property) instead, you can use made up `rvh` ("real viewport height") units in values of an object passed to `style` prop. `Div100vh` will find any style declarations with this unit and calculate the value as a percentage of `window.innerHeight`:
 
 ```jsx
   <Div100vh style={{minHeight: '50rvh'}}>
-    <marquee>This is inside a div is at least 50% of viewport height.</marquee>
+    <marquee>This is inside a div that takes at least 50% of viewport height.</marquee>
   </Div100vh>
 ```
 
-If you don't pass an object to the `style` prop, it works as if you specified `{height: '100rvh'}`:
-```
-<Div100vh style={{height: '100rvh'}}>
-```
+If you don't specify `style` prop, it works as if you specified `{height: '100rvh'}`;
+`<Div100vh>` is equivalent to `<Div100vh style={{height: '100rvh'}}>`.
 
 If you do pass anything to the `style` prop, no implicit style is applied. You can do something like:
 ```
@@ -60,7 +58,7 @@ If you do pass anything to the `style` prop, no implicit style is applied. You c
 </Div100vh>
 ```
 
-The rest of the props are passed through to the underlying `div` unchanged.
+The rest of the props are passed through to the underlying `div` that `Div100vh` renders unchanged.
 
 ## Additional considerations
 
