@@ -1,5 +1,6 @@
 # `Div100vh` React component
 [![CircleCI](https://circleci.com/gh/mvasin/react-div-100vh.svg?style=svg&circle-token=cd3f9e7031e393880d945af301841db926000ec4)](https://circleci.com/gh/mvasin/react-div-100vh)
+[![npm version](https://badge.fury.io/js/react-div-100vh.svg)](https://badge.fury.io/js/react-div-100vh)
 
 This is a workaround for iOS Safari and other mobile browsers.
 
