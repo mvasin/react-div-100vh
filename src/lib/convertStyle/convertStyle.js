@@ -37,7 +37,10 @@ function convertStyle(givenStyle, windowHeight) {
   Object.keys(usedStyle).forEach(key => {
     // if a value contains no rvh unit, it's used as is, otherwise converted
     // to px; 1rvh = (window.innerHeight / 100)px
-    convertedStyle[key] = replaceRvhWithPx(usedStyle[key], windowHeight);
+    convertedStyle[key] =
+      typeof usedStyle[key] === 'string'
+        ? replaceRvhWithPx(usedStyle[key], windowHeight)
+        : usedStyle[key];
   });
   return convertedStyle;
 }

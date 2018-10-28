@@ -40,6 +40,13 @@ describe('rvh conversion', () => {
     expect(() => convertStyle({}, 1000)).not.toThrow();
   });
 
+  it('supports non-string value as style value', () => {
+    expect(convertStyle({ lineHeight: 2, height: '50rvh' }, 1000)).toEqual({
+      lineHeight: 2,
+      height: '500px'
+    });
+  });
+
   it('converts rvh to px', () => {
     expect(convertStyle({ height: '100rvh' }, 1000)).toEqual({
       height: '1000px'
