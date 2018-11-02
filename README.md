@@ -65,3 +65,7 @@ The rest of the props are passed unchanged to the underlying `div` that `Div100v
 ## Additional considerations
 
 Please note that most likely you will want to set `body {margin: 0}` css, unless you use some css reset that does it for you.
+
+## Testing
+This component is tested with Jest and BrowserStack
+<img src="images/Browserstack-logo.svg">
