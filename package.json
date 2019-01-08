@@ -40,6 +40,8 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-test-renderer": "^16.5.2",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "serve-handler": "^5.0.5",
     "style-loader": "^0.21.0",
     "webpack": "^4.17.1",
     "webpack-cli": "^2.1.5",
