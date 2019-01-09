@@ -1,4 +1,4 @@
-// if you run it locally, start it with:
+// if you run it locally, have these env vars in scope or start with:
 // BROWSERSTACK_USERNAME=foo BROWSERSTACK_KEY=bar node e2e/smoke-test.js
 
 const {Builder} = require('selenium-webdriver');
@@ -6,14 +6,14 @@ const server = require('./server');
 const tests = Object.values(require('./tests'));
 const browsers = Object.values(require('./browsers'));
 
-const getDriver = browser => new Builder()
+const buildDriver = browser => new Builder()
   .usingServer('http://hub-cloud.browserstack.com/wd/hub')
   .withCapabilities(browser)
   .build()
 
 // `runs` is a matrix of browsers and tests, flattened
 const runs = tests.map(test => browsers.map(browser => {
-  const driver = getDriver(browser);
+  const driver = buildDriver(browser);
   return {
     name: test.name, // test function name
     browser,
