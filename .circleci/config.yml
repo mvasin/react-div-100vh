@@ -32,6 +32,9 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
+
+      # build docs (e2e tests need it)
+      - run: npm run docs:prod
+
       # run tests!
-      - run: npm test
+      - run: npm run test:e2e
