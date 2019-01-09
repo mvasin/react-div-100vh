@@ -20,7 +20,8 @@ exports.close = () => {
 // that's all (only enough for smoke tests as I roll out these e2e tests).
 const server = http.createServer((req, res) => {
   handler(req, res, {
-    cleanUrls: true
+    cleanUrls: true,
+    public: 'docs'
   })
 });
 
