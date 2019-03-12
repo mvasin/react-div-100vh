@@ -60,6 +60,16 @@ If you do pass anything to the `style` prop, no implicit style is applied. You c
 </Div100vh>
 ```
 
+### `dontResize` prop 
+
+Use the `dontResize` prop if you dont want your `<Div100vh>` to resize. This is helpful if you want to have the same height when ui like mobile keyboards open.
+
+```jsx
+<Div100vh dontResize={true} >
+  <p>my content here</p>
+</Div100vh>
+```
+
 The rest of the props are passed unchanged to the underlying `div` that `Div100vh` renders.
 
 ## Additional considerations
