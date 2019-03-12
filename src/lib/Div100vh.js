@@ -10,8 +10,10 @@ export default class Div100vh extends React.Component {
   // On mount and window resize converts rvh values to px (if there are any).
   // Also, adds `height: 100rvh` if height is not specified at all
   updateStyle = () => {
-    const convertedStyle = convertStyle(this.props.style, getWindowHeight());
-    this.setState({ style: convertedStyle });
+    if (!this.props.dontResize) {
+      const convertedStyle = convertStyle(this.props.style, getWindowHeight());
+      this.setState({ style: convertedStyle });
+    }
   };
 
   componentDidMount() {
@@ -24,6 +26,8 @@ export default class Div100vh extends React.Component {
   }
 
   render() {
-    return <div {...this.props} style={this.state.style} />;
+    const { dontResize, ...otherProps } = this.props;
+
+    return <div {...otherProps} style={this.state.style} />;
   }
 }

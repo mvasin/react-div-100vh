@@ -66,3 +66,9 @@ it('passes through to the underlying div the other props without rvh', () => {
   const props = getDivProps(component);
   expect(props).toEqual({ foo: 'bar', style: { color: 'red' } });
 });
+
+it("doesn't pass dontResize prop", () => {
+  const component = renderComponent({ dontResize: true });
+  const { dontResize } = getDivProps(component);
+  expect(dontResize).toBeUndefined();
+});
