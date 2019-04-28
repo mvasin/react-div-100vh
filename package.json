@@ -1,6 +1,6 @@
 {
   "name": "react-div-100vh",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A React component that aims to solve '100vh' issue in mobile browsers",
   "main": "lib/index.js",
   "scripts": {
@@ -13,9 +13,6 @@
   },
   "keywords": [],
   "license": "MIT",
-  "dependencies": {
-    "jest-get-type": "^22.4.3"
-  },
   "peerDependencies": {
     "react": ">15",
     "react-dom": ">15"
