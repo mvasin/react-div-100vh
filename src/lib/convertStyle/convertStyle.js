@@ -18,7 +18,10 @@ function replaceRvhWithPx(propertyStringValue, windowHeight) {
 }
 
 function throwOnBadArgs(givenStyle, windowHeight) {
-  if (typeof givenStyle !== 'object' && givenStyle !== undefined)
+  if (
+    (typeof givenStyle !== 'object' && givenStyle !== undefined) ||
+    Array.isArray(givenStyle)
+  )
     throw Error(`style (the first argument) must be an object or undefined`);
   if (typeof windowHeight !== 'number' || windowHeight < 0)
     throw Error('Second argument (windowHeight) must be a non-negative number');
