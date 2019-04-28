@@ -1,3 +1,6 @@
+## 0.3.1 (Apr 28, 2019)
+* Avoid to use jest-get-type in production (@valse in [7](https://github.com/mvasin/react-div-100vh/pull/7))
+
 ## 0.3 (Oct 17, 2018)
 * Get rid of unnecessary handling DOM node via `ref`, because props would do just fine
 * Move demo from GitHub Pages to Netlify
