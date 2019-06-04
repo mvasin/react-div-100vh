@@ -31,7 +31,7 @@ function convertStyle(givenStyle, windowHeight) {
   throwOnBadArgs(givenStyle, windowHeight);
 
   // If style is not passed, implicit {height: '100rvh'} style is used.
-  const defaultStyle = { height: '100rvh' };
+  const defaultStyle = {};
   const usedStyle = givenStyle === undefined ? defaultStyle : givenStyle;
 
   const convertedStyle = {};
