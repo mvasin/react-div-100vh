@@ -27,6 +27,12 @@ function Demo() {
             </a>
             .
           </p>
+          Sometimes you need an input field, here's one for a test:
+          <input
+            placeholder="Try me"
+            // https://stackoverflow.com/q/2989263/5274538
+            style={{ fontSize: '16px' }}
+          />
         </div>
         <div
           style={{

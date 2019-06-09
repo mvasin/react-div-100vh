@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ip = require("ip");
 
 module.exports = {
   entry: path.join(__dirname, "src/docs"),
@@ -31,6 +32,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "docs"),
     port: 8000,
+    host: ip.address(),
     stats: "minimal"
   }
 };
