@@ -66,3 +66,16 @@ it('passes through to the underlying div the other props without rvh', () => {
   const props = getDivProps(component);
   expect(props).toEqual({ foo: 'bar', style: { color: 'red' } });
 });
+
+describe('rendering elements other than divs', () => {
+  it('renders a div if no el prop is passed in', () => {
+    const component = renderComponent({});
+    expect(component.root.findByType('div')).toBeTruthy();
+  });
+
+  it('renders a non-div element passed in as a prop', () => {
+    const type = 'main';
+    const component = renderComponent({ as: type });
+    expect(component.root.findByType(type)).toBeTruthy();
+  });
+});

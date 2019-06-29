@@ -62,6 +62,19 @@ If you do pass anything to the `style` prop, no implicit style is applied. You c
 
 The rest of the props are passed unchanged to the underlying `div` that `Div100vh` renders.
 
+
+### Rendering non-`<div>` elements
+
+You can also pass an `as` prop to render other elements than `<div>`s - for example, `<main>`, `<section>`, `<footer>`, et cetera. 
+
+```jsx
+<Div100vh as="main">
+  <p>Some main content</p>
+</Div100vh>
+```
+
+> ❗ Keep in mind that this works best with [block-level elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements), as inline-level elements don't respond to the CSS `height` property. 
+
 ## Additional considerations
 
 Please note that most likely you will want to set `body {margin: 0}` css, unless you use some css reset that does it for you.
