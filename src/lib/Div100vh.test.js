@@ -41,14 +41,14 @@ describe('rvh unit conversion', () => {
   });
   it('converts a shorthand value with multiple rvh entries', () => {
     const component = renderComponent({
-      style: { margin: '1rvh 2px 1.5rvh 3%' },
+      style: { margin: '1rvh 2px 1.5rvh 3%' }
     });
     const props = getDivProps(component);
     expect(props).toEqual({ style: { margin: '10px 2px 15px 3%' } });
   });
   it('converts an rvh value and passes through other style props', () => {
     const component = renderComponent({
-      style: { fontSize: '5rvh', color: 'red' },
+      style: { fontSize: '5rvh', color: 'red' }
     });
     const props = getDivProps(component);
     expect(props).toEqual({ style: { fontSize: '50px', color: 'red' } });
