@@ -65,10 +65,10 @@ The rest of the props are passed unchanged to the underlying `div` that `Div100v
 
 ### Rendering non-`<div>` elements
 
-You can also pass an `el` prop to render other elements than `<div>`s - for example, `<main>`, `<section>`, `<footer>`, et cetera. 
+You can also pass an `as` prop to render other elements than `<div>`s - for example, `<main>`, `<section>`, `<footer>`, et cetera. 
 
 ```jsx
-<Div100vh el="main">
+<Div100vh as="main">
   <p>Some main content</p>
 </Div100vh>
 ```

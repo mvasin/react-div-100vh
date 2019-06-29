@@ -4,7 +4,7 @@ import getWindowHeight from './getWindowHeight';
 
 export default class Div100vh extends React.Component {
   state = {
-    style: {}
+    style: {},
   };
 
   // On mount and window resize converts rvh values to px (if there are any).
@@ -24,8 +24,8 @@ export default class Div100vh extends React.Component {
   }
 
   render() {
-    const { el: El = 'div', ...props } = this.props;
+    const { as: Element = 'div', ...props } = this.props;
 
-    return <El {...props} style={this.state.style} />;
+    return <Element {...props} style={this.state.style} />;
   }
 }
