@@ -1,3 +1,6 @@
+## 0.3.4 (Aug 15, 2019)
+* Add support for nondiv elements (@charlescrtr in [20](https://github.com/mvasin/react-div-100vh/pull/20))
+
 ## 0.3.3 (Apr 28, 2019)
 * Avoid to use jest-get-type in production (@valse in [7](https://github.com/mvasin/react-div-100vh/pull/7))
 
