@@ -9,7 +9,7 @@
     "lib:watch": "babel src/lib -w -d lib --copy-files",
     "docs": "webpack-dev-server --mode development",
     "docs:prod": "webpack --mode production",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "jest"
   },
   "keywords": [],
   "license": "MIT",
@@ -52,20 +52,6 @@
     "src/**/*.{js,jsx,json,css}": [
       "prettier --single-quote --write",
       "git add"
-    ]
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "testMatch": [
-      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx}"
-    ],
-    "testURL": "http://localhost",
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "jsx"
     ]
   },
   "author": "Mikhail Vasin <michaelvasin@gmail.com>",
