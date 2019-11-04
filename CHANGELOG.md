@@ -1,3 +1,6 @@
+## 0.3.5 (Nov 5, 2019)
+* Use document.documentElement.clientHeight instead of window.innerHeight (@roman-kaspar in [22](https://github.com/mvasin/react-div-100vh/pull/22))
+
 ## 0.3.4 (Aug 15, 2019)
 * Add support for nondiv elements (@charlescrtr in [20](https://github.com/mvasin/react-div-100vh/pull/20))
 
