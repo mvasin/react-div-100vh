@@ -1,5 +1,8 @@
-// extracted into a separate module so it's easier to mock with Jest
 function getWindowHeight() {
+  if (typeof document === 'undefined' && typeof window === 'undefined') {
+    return 0;
+  }
+
   return (document && document.documentElement && document.documentElement.clientHeight) || window.innerHeight;
 }
 

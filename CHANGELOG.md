@@ -1,3 +1,6 @@
+## 0.3.7 (Dec 13, 2019)
+* Fix 'error "document" is not available during server side rendering.' (@kyleboss-tinder in [28](https://github.com/mvasin/react-div-100vh/pull/28))
+
 ## 0.3.6 (Dec 10, 2019)
 * Use document.documentElement.clientHeight instead of window.innerHeight (@meyerds in [26](https://github.com/mvasin/react-div-100vh/pull/26))
 
