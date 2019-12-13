@@ -1,8 +1,11 @@
+## 0.3.8 (Dec 13, 2019)
+* Revert 0.3.6 and 0.3.7 (@mvasin in [29](https://github.com/mvasin/react-div-100vh/pull/29))
+
 ## 0.3.7 (Dec 13, 2019)
 * Fix 'error "document" is not available during server side rendering.' (@kyleboss-tinder in [28](https://github.com/mvasin/react-div-100vh/pull/28))
 
 ## 0.3.6 (Dec 10, 2019)
-* Use document.documentElement.clientHeight instead of window.innerHeight (@meyerds in [26](https://github.com/mvasin/react-div-100vh/pull/26))
+* Apply the styles on the first render (@meyerds in [26](https://github.com/mvasin/react-div-100vh/pull/26))
 
 ## 0.3.5 (Dec 8, 2019)
 * Use document.documentElement.clientHeight instead of window.innerHeight (@roman-kaspar in [22](https://github.com/mvasin/react-div-100vh/pull/22))

@@ -79,10 +79,3 @@ describe('rendering elements other than divs', () => {
     expect(component.root.findByType(type)).toBeTruthy();
   });
 });
-
-it('applies the style to the first render', () => {
-  const component = new Div100vh({ style: { height: '50.5rvh' } });
-  const firstRenderedComponent = renderer.create(component.render());
-  const props = firstRenderedComponent.root.props;
-  expect(props).toEqual({ style: { height: '505px' } });
-});
