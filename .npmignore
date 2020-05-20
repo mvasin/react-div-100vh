@@ -1,4 +1,2 @@
-docs
-src
-.babelrc
-webpack.config.js
+*
+!dist-lib/*

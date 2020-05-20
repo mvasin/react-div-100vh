@@ -1,7 +1,10 @@
 node_modules
-/lib
 
 # vim .sw files
 *.sw*
 
-/docs
+dist-demo
+dist-lib
+
+# Parcel
+.cache

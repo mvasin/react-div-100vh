@@ -1,59 +1,33 @@
 {
   "name": "react-div-100vh",
-  "version": "0.3.8",
-  "description": "A React component that aims to solve '100vh' issue in mobile browsers",
-  "main": "lib/index.js",
-  "scripts": {
-    "dev": "concurrently \"npm run lib:watch\" \"npm run docs\"",
-    "lib": "babel src/lib -d lib --copy-files",
-    "lib:watch": "babel src/lib -w -d lib --copy-files",
-    "docs": "webpack-dev-server --mode development",
-    "docs:prod": "webpack --mode production",
-    "test": "jest"
-  },
-  "keywords": [],
+  "version": "0.4.0",
+  "description": "Aiming to solve the '100vh' issue in mobile browsers",
   "license": "MIT",
+  "main": "dist-lib/index.js",
+  "types": "dist-lib/index.d.ts",
+  "scripts": {
+    "test": "ts-node tests/ssr.tsx",
+    "dev": "parcel demo/index.html",
+    "build-demo": "parcel build --out-dir dist-demo demo/index.html",
+    "serve-demo": "npx serve dist-demo",
+    "build-lib": "npx tsc -p lib/tsconfig.json",
+    "prepublishOnly": "npm run build-lib && npm run build-demo"
+  },
   "peerDependencies": {
-    "react": ">15",
-    "react-dom": ">15"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-loader": "^8.1.0",
-    "concurrently": "^5.2.0",
-    "css-loader": "^3.5.3",
-    "html-webpack-plugin": "^4.3.0",
-    "husky": "^4.2.5",
-    "ip": "^1.1.5",
-    "jest": "^25.5.3",
-    "lint-staged": "^10.2.2",
+    "@types/node": "^14.6.0",
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
+    "parcel-bundler": "^1.12.4",
     "prettier": "^2.0.5",
-    "raf": "^3.4.1",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-test-renderer": "^16.13.1",
-    "style-loader": "^1.2.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^4.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "prettier --single-quote --write"
-    ]
-  },
-  "author": "Mikhail Vasin <michaelvasin@gmail.com>",
+  "author": "Mikhail Vasin",
   "homepage": "https://github.com/mvasin/react-div-100vh",
   "repository": {
     "type": "git",
