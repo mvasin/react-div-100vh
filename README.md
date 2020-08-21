@@ -8,6 +8,10 @@ This is a workaround for iOS Safari and other mobile browsers.
 
 At the top of the page, mobile browsers cover bottom of `100vh` page with "browser chrome" (that's the name for browser navigation/context buttons, don't confuse with the browser from Google), effectively cropping it. If you have something important at the bottom of your splash screen, chances are it will not be visible/available until user scrolls.
 
+| `<div style={{height: '100vh'}}>`                                                                                               | `<Div100vh>`                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| ![Page cropped by bottom Safari chrome](https://raw.githubusercontent.com/mvasin/react-div-100vh/master/images/regular-div.png) | ![Page cropped by bottom Safari chrome](https://raw.githubusercontent.com/mvasin/react-div-100vh/master/images/react-div-100vh.png) |
+
 More on this issue [here](https://nicolas-hoizey.com/2015/02/viewport-height-is-taller-than-the-visible-part-of-the-document-in-some-mobile-browsers.html).
 
 ## The solution
@@ -38,10 +42,6 @@ const Div100vh = ({ children }) => {
 Use `Div100vh` only for simple cases, for anything more involved turn to the `use100vh` hook.
 
 Under the hood `use100vh` uses `getRealHeight` function, it's exported as well, so feel free to use it, even without React.
-
-| `<div style={{height: '100vh'}}>`                                                                                               | `<Div100vh>`                                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| ![Page cropped by bottom Safari chrome](https://raw.githubusercontent.com/mvasin/react-div-100vh/master/images/regular-div.png) | ![Page cropped by bottom Safari chrome](https://raw.githubusercontent.com/mvasin/react-div-100vh/master/images/react-div-100vh.png) |
 
 ## Testing
 
