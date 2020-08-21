@@ -16,7 +16,7 @@ More on this issue [here](https://nicolas-hoizey.com/2015/02/viewport-height-is-
 
 ## The solution
 
-`Div100vh` is the default export:
+`Div100vh` React component is the default export:
 
 ```jsx
 import Div100vh from 'react-div-100vh'
@@ -28,20 +28,19 @@ const MyFullHeightComponent = () => (
 )
 ```
 
-There is also a named export `use100vh`, which provides an accurate vertical height in pixels. The return type is a `number` in a browser and `undefined` in Node environment. You may need to concatenate with `px`:
+For more advanced use cases (for instance, if you need 50% of the real height, and not 100%), there is a named export `use100vh`. This React hook provides an accurate vertical height in pixels. The return type is a `number` in a browser and `undefined` in Node environment. You may need to check if it's not `undefined` if you're doing SSR, otherwise manipulate the value as you wish and concatenate the result with `px`:
 
 ```jsx
 import { use100vh } from 'react-div-100vh'
 
-const Div100vh = ({ children }) => {
+const MyHalfHeightExampleComponent = ({ children }) => {
   const height = use100vh()
-  return <div style={{ height: height + 'px' }}>{children}</div>
+  const halfHeight = height ? height / 2 : '50vh'
+  return <div style={{ height: halfHeight }}>{children}</div>
 }
 ```
 
-Use `Div100vh` only for simple cases, for anything more involved turn to the `use100vh` hook.
-
-Under the hood `use100vh` uses `getRealHeight` function, it's exported as well, so feel free to use it, even without React.
+Under the hood `use100vh` uses `getRealHeight` function which is exported as well, so feel free to use it, even without React. Currently it returns `document.documentElement?.clientHeight || window.innerHeight`.
 
 ## Testing
 
