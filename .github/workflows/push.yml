@@ -1,5 +1,5 @@
 on: [push, pull_request]
-name: Build, Test and maybe Publish
+name: Build and Test # and maybe Publish
 jobs:
   test:
     name: Build & Test
@@ -43,8 +43,11 @@ jobs:
     - name: Test
       run: npm_config_yes=true npx best-test@latest
 
-    - name: Publish
-      uses: mikeal/merge-release@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    # While I'm exploring an approach to incorporate 2FA into the automatic
+    # publishing process, I'm commenting it out.
+    # See https://github.com/mikeal/merge-release/issues/16
+    # - name: Publish
+    #   uses: mikeal/merge-release@master
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
