@@ -8,10 +8,10 @@
   "scripts": {
     "test": "ts-node tests/ssr.tsx",
     "dev": "parcel demo/index.html",
-    "build-demo": "parcel build --out-dir dist-demo demo/index.html",
-    "serve-demo": "npx serve dist-demo",
-    "build-lib": "npx tsc -p lib/tsconfig.json",
-    "prepublishOnly": "npm run build-lib && npm run build-demo"
+    "build:demo": "parcel build --out-dir dist-demo demo/index.html",
+    "build:lib": "npx tsc -p lib/tsconfig.json",
+    "serve:demo": "npx serve dist-demo",
+    "prepublishOnly": "npm run build:lib && npm run build:demo"
   },
   "peerDependencies": {
     "react": ">=16.8.0"
