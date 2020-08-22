@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { render } from 'react-dom'
+import {version} from '../package.json'
 
 import { use100vh } from '../lib'
 
@@ -27,6 +27,7 @@ export function Demo() {
           <h1>
             The <code>Div100vh</code> / <code>use100vh</code> hook demo
           </h1>
+          <p>Version {version}</p>
           <p>
             Use <code>&lt;Div100vh&gt;</code> React component or{' '}
             <code>&lt;use100vh&gt;</code> hook to avoid cropping at the bottom
