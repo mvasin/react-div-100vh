@@ -7,7 +7,7 @@
   "types": "dist-lib/index.d.ts",
   "scripts": {
     "test": "ts-node tests/ssr.tsx",
-    "dev": "parcel demo/index.html",
+    "dev": "parcel --out-dir dist-demo demo/index.html",
     "build:demo": "parcel build --out-dir dist-demo demo/index.html",
     "build:lib": "npx tsc -p lib/tsconfig.json",
     "serve:demo": "npx serve dist-demo",
