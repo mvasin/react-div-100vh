@@ -25,7 +25,7 @@ export function Demo() {
       <Div100vh>
         <div style={{ flex: 'auto', padding: '1rem' }}>
           <h1>
-            The <code>Div100vh</code> / <code>use100vh</code> hook demo
+            The <code>Div100vh</code> / <code>use100vh</code> demo
           </h1>
           <p>Version {version}</p>
           <p>
