@@ -3,7 +3,7 @@ import React, { useState, useEffect, HTMLAttributes } from 'react'
 export default function Div100vh({
   style = {},
   ...other
-}: HTMLAttributes<HTMLDivElement>) {
+}: HTMLAttributes<HTMLDivElement>): JSX.Element {
   const height = use100vh()
   const styleWithRealHeight = {
     ...style,
@@ -12,7 +12,7 @@ export default function Div100vh({
   return <div style={styleWithRealHeight} {...other} />
 }
 
-export function use100vh() {
+export function use100vh(): number | null {
   const [height, setHeight] = useState(getRealHeight())
   const setRealHeight = () => {
     if (height !== getRealHeight()) setHeight(getRealHeight())
@@ -25,7 +25,7 @@ export function use100vh() {
   return height
 }
 
-export function getRealHeight() {
+export function getRealHeight(): number | null {
   if (typeof window === 'undefined') return null
   return document.documentElement?.clientHeight || window.innerHeight
 }
