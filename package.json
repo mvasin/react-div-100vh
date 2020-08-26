@@ -27,7 +27,7 @@
     "eslint-plugin-react": "^7.20.6",
     "jest": "^26.4.2",
     "parcel-bundler": "^1.12.4",
-    "prettier": "^2.0.5",
+    "prettier": "2.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "ts-jest": "^26.3.0",
