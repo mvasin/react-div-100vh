@@ -17,12 +17,12 @@ describe('in NodeJS environment', () => {
 
   describe('use100vh hook', () => {
     it('returns null', () => {
-      const HookApp = () => {
+      const TestApp = () => {
         const height = use100vh()
         const text = `The real height is ${String(height)}`
         return <div>{text}</div>
       }
-      expect(renderToString(<HookApp />)).toMatch(/The real height is null/)
+      expect(renderToString(<TestApp />)).toMatch(/The real height is null/)
     })
   })
 })

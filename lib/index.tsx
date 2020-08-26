@@ -14,8 +14,9 @@ export default function Div100vh({
 
 export function use100vh(): number | null {
   const [height, setHeight] = useState(getRealHeight())
-  const setRealHeight = () => {
-    if (height !== getRealHeight()) setHeight(getRealHeight())
+  function setRealHeight() {
+    const realHeight = getRealHeight()
+    if (height !== realHeight) setHeight(realHeight)
   }
 
   useEffect(() => {
