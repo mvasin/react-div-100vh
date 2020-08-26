@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
-import {version} from '../package.json'
+import React, { FC, ReactNode } from 'react'
+import { version } from '../package.json'
 
 import { use100vh } from '../lib'
 
-const Div100vh: FC = ({ children }) => {
+const Div100vh: FC = ({ children }: { children?: ReactNode }) => {
   const realHeight = use100vh()
   return (
     <div
@@ -19,7 +19,7 @@ const Div100vh: FC = ({ children }) => {
   )
 }
 
-export function Demo() {
+export function Demo(): JSX.Element {
   return (
     <div>
       <Div100vh>
@@ -41,7 +41,7 @@ export function Demo() {
             </a>
             .
           </p>
-          Here's an input field to check the case when keyboard shows up on a
+          Here is an input field to check the case when keyboard shows up on a
           mobile device:{' '}
           <input
             // https://stackoverflow.com/q/2989263/5274538

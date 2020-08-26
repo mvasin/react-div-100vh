@@ -8,6 +8,8 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint lib",
+    "prettier:test": "prettier --check .",
+    "prettier:write": "prettier --write .",
     "dev": "parcel --out-dir dist-demo demo/index.html",
     "build:demo": "parcel build --out-dir dist-demo demo/index.html",
     "build:lib": "npx tsc -p lib/tsconfig.json",
