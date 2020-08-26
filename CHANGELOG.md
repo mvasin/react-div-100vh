@@ -1,7 +1,13 @@
-## 0.4.0 (Aug 9, 2020)
+## 0.5.0 (Aug 27, 2020)
+- [BREAKING CHANGE] `use100vh` returns `null` in Node (when server-side rendered)(@mvasin)
+- test: switch to Jest (@mvasin)
+- chore: add eslint (@mvasin)
+- chore: add prettier (@mvasin)
 
-- [BREAKING CHANGE] `use100vh` React hook was added. It returns height as a `number` in a browser and `undefined` in Node (when server-side rendered). Minimum React version now is "the one with hooks" - 16.8.0 (@mvasin in [29](https://github.com/mvasin/react-div-100vh/pull/xx))
-- [BREAKING CHANGE] `rvh` units were ditched from `Div100vh` component API, use the `use100vh` hook instead (@mvasin in [29](https://github.com/mvasin/react-div-100vh/pull/xx))
+## 0.4.0 (Aug 22, 2020)
+
+- [BREAKING CHANGE] `use100vh` React hook was added. It returns height as a `number` in a browser and `undefined` in Node (when server-side rendered). Minimum React version now is "the one with hooks" - 16.8.0 (@mvasin)
+- [BREAKING CHANGE] `rvh` units were ditched from `Div100vh` component API, use the `use100vh` hook instead (@mvasin)
 
 ## 0.3.8 (Dec 13, 2019)
 
