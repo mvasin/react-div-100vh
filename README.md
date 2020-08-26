@@ -28,7 +28,7 @@ const MyFullHeightComponent = () => (
 )
 ```
 
-For more advanced use cases (for instance, if you need 50% of the real height, and not 100%), there is a named export `use100vh`. This React hook provides an accurate vertical height in pixels. The return type is a `number` in a browser and `undefined` in Node environment. You may need to check if it's not `undefined` if you're doing SSR, otherwise manipulate the value as you wish and concatenate the result with `px`:
+For more advanced use cases (for instance, if you need 50% of the real height, and not 100%), there is a named export `use100vh`. This React hook provides an accurate vertical height in pixels. The return type is a `number` in a browser and `null` in Node environment. You may need to check if it's not `null` if you're doing SSR, otherwise manipulate the value as you wish and concatenate the result with `px`:
 
 ```jsx
 import { use100vh } from 'react-div-100vh'
