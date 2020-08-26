@@ -1,4 +1,5 @@
 ## 0.5.0 (Aug 27, 2020)
+
 - [BREAKING CHANGE] `use100vh` returns `null` in Node (when server-side rendered)(@mvasin)
 - test: switch to Jest (@mvasin)
 - chore: add eslint (@mvasin)
