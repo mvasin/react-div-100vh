@@ -6,7 +6,7 @@
   "main": "dist-lib/index.js",
   "types": "dist-lib/index.d.ts",
   "scripts": {
-    "test": "jest",
+    "test": "jest --config .jestrc.json",
     "lint": "eslint lib",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
