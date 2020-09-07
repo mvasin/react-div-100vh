@@ -13,20 +13,46 @@ export default function Div100vh({
 }
 
 export function use100vh(): number | null {
-  const [height, setHeight] = useState(getRealHeight())
-  function setRealHeight() {
-    const realHeight = getRealHeight()
-    if (height !== realHeight) setHeight(realHeight)
-  }
+  const [height, setHeight] = useState<number | null>(null)
+
+  const wasRenderedOnClientAtLeastOnce = useWasRenderedOnClientAtLeastOnce()
 
   useEffect(() => {
-    window.addEventListener('resize', setRealHeight)
-    return () => window.removeEventListener('resize', setRealHeight)
-  }, [setRealHeight, height])
+    function setMeasuredHeight() {
+      const measuredHeight = measureHeight()
+      if (wasRenderedOnClientAtLeastOnce && height !== measuredHeight)
+        setHeight(measuredHeight)
+    }
+
+    window.addEventListener('resize', setMeasuredHeight)
+    return () => window.removeEventListener('resize', setMeasuredHeight)
+  }, [height, wasRenderedOnClientAtLeastOnce])
   return height
 }
 
-export function getRealHeight(): number | null {
-  if (typeof window === 'undefined') return null
+export function measureHeight(): number | null {
+  if (!isClient()) return null
   return document.documentElement?.clientHeight || window.innerHeight
+}
+
+// Once we ended up on client, the first render must look the same as on
+// the server so hydration happens without problems. _Then_ we immediately
+// schedule a subsequent update and return the height measured on the client.
+// It's not needed for CSR-only apps, but is critical for SSR.
+function useWasRenderedOnClientAtLeastOnce() {
+  const [
+    wasRenderedOnClientAtLeastOnce,
+    setWasRenderedOnClientAtLeastOnce
+  ] = useState(false)
+
+  useEffect(() => {
+    if (isClient() && !wasRenderedOnClientAtLeastOnce) {
+      setWasRenderedOnClientAtLeastOnce(true)
+    }
+  }, [wasRenderedOnClientAtLeastOnce])
+  return wasRenderedOnClientAtLeastOnce
+}
+
+function isClient() {
+  return typeof window !== 'undefined'
 }
