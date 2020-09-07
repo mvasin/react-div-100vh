@@ -13,7 +13,7 @@ export default function Div100vh({
 }
 
 export function use100vh(): number | null {
-  const [height, setHeight] = useState<number | null>(null)
+  const [height, setHeight] = useState<number | null>(measureHeight())
 
   const wasRenderedOnClientAtLeastOnce = useWasRenderedOnClientAtLeastOnce()
 
@@ -28,7 +28,7 @@ export function use100vh(): number | null {
     window.addEventListener('resize', setMeasuredHeight)
     return () => window.removeEventListener('resize', setMeasuredHeight)
   }, [height, wasRenderedOnClientAtLeastOnce])
-  return height
+  return wasRenderedOnClientAtLeastOnce ? height : null
 }
 
 export function measureHeight(): number | null {
