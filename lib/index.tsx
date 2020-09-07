@@ -18,10 +18,11 @@ export function use100vh(): number | null {
   const wasRenderedOnClientAtLeastOnce = useWasRenderedOnClientAtLeastOnce()
 
   useEffect(() => {
+    if (!wasRenderedOnClientAtLeastOnce) return
+
     function setMeasuredHeight() {
       const measuredHeight = measureHeight()
-      if (wasRenderedOnClientAtLeastOnce && height !== measuredHeight)
-        setHeight(measuredHeight)
+      if (height !== measuredHeight) setHeight(measuredHeight)
     }
 
     window.addEventListener('resize', setMeasuredHeight)
