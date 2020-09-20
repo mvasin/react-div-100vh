@@ -1,0 +1,21 @@
+{
+  "name": "client-side-demo",
+  "description": "An example of client-side rendered app",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "parcel --out-dir dist index.html",
+    "build": "parcel build --out-dir dist index.html",
+    "serve": "npx serve dist"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-div-100vh": "*"
+  },
+  "devDependencies": {
+    "serve": "^11.3.2"
+  }
+}

@@ -1,45 +1,26 @@
 {
-  "name": "react-div-100vh",
-  "version": "0.5.1-beta.2",
-  "description": "A workaround for the '100vh' issue in mobile browsers",
-  "license": "MIT",
-  "main": "dist-lib/index.js",
-  "types": "dist-lib/index.d.ts",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "jest --config .jestrc.json",
-    "lint": "eslint lib",
+    "lint": "eslint packages/react-div-100vh/src",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
-    "dev": "parcel --out-dir dist-demo demo/index.html",
-    "build:demo": "parcel build --out-dir dist-demo demo/index.html",
-    "build:lib": "npx tsc -p lib/tsconfig.json",
-    "serve:demo": "npx serve dist-demo",
-    "prepublishOnly": "npm run build:lib && npm run build:demo"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0"
+    "build": "yarn workspace client-side-demo build",
+    "prebuild": "yarn workspace react-div-100vh build",
+    "serve": "yarn workspace client-side-demo serve"
   },
   "devDependencies": {
-    "@types/node": "^14",
-    "@types/react": ">=16.9.49 <18",
-    "@types/react-dom": ">=16.9.8 <18",
     "@typescript-eslint/eslint-plugin": "^4",
     "@typescript-eslint/parser": "^4",
     "eslint": "^7",
     "eslint-plugin-react": "^7",
     "jest": "^26",
-    "parcel-bundler": "^1",
     "prettier": "^2",
-    "react": "17.0.0-rc.1",
-    "react-dom": "17.0.0-rc.1",
     "ts-jest": "^26",
     "ts-node": "^9",
     "typescript": "^4"
-  },
-  "author": "Mikhail Vasin",
-  "homepage": "https://github.com/mvasin/react-div-100vh",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:mvasin/react-div-100vh.git"
   }
 }

@@ -3,8 +3,10 @@ node_modules
 # vim .sw files
 *.sw*
 
-dist-demo
-dist-lib
+dist
 
 # Parcel
 .cache
+
+# Yarn
+yarn-error.log

@@ -1,0 +1,45 @@
+{
+  "name": "react-div-100vh",
+  "version": "0.5.1-beta.3",
+  "description": "A workaround for the '100vh' issue in mobile browsers",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest .",
+    "build:esm": "yarn tsc -p tsconfig-esm.json",
+    "build:cjs": "yarn tsc -p tsconfig-cjs.json",
+    "build:types": "yarn tsc -p tsconfig-types.json",
+    "build:cleanup": "rm -rf dist",
+    "build": "yarn build:cleanup && yarn build:cjs && yarn build:esm && yarn build:types",
+    "prepublishOnly": "yarn build"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14",
+    "@types/react": ">=16.9.49 <18",
+    "@types/react-dom": ">=16.9.8 <18",
+    "@typescript-eslint/eslint-plugin": "^4",
+    "@typescript-eslint/parser": "^4",
+    "eslint": "^7",
+    "eslint-plugin-react": "^7",
+    "jest": "^26",
+    "parcel-bundler": "^1",
+    "prettier": "^2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "ts-jest": "^26",
+    "ts-node": "^9",
+    "typescript": "^4"
+  },
+  "author": "Mikhail Vasin",
+  "homepage": "https://github.com/mvasin/react-div-100vh",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mvasin/react-div-100vh.git",
+    "directory": "packages/react-div-100vh"
+  }
+}

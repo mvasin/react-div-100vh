@@ -1,7 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { version } from '../package.json'
-
-import { use100vh } from '../lib'
+import { use100vh } from 'react-div-100vh'
 
 const Div100vh: FC = ({ children }: { children?: ReactNode }) => {
   const realHeight = use100vh()
@@ -27,7 +25,6 @@ export function Demo(): JSX.Element {
           <h1>
             The <code>Div100vh</code> / <code>use100vh</code> demo
           </h1>
-          <p>Version {version}</p>
           <p>
             Use <code>&lt;Div100vh&gt;</code> React component or{' '}
             <code>&lt;use100vh&gt;</code> hook to avoid cropping at the bottom

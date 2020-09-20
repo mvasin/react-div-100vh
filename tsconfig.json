@@ -1,9 +1,12 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "jsx": "react",
     "strict": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   }
 }
