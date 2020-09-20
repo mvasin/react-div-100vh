@@ -11,8 +11,8 @@
     "build:esm": "yarn tsc -p tsconfig-esm.json",
     "build:cjs": "yarn tsc -p tsconfig-cjs.json",
     "build:types": "yarn tsc -p tsconfig-types.json",
-    "build:cleanup": "rm -rf dist",
-    "build": "time yarn concurrently --kill-others-on-fail 'yarn build:cleanup' 'yarn build:cjs' 'yarn build:esm' 'yarn build:types'",
+    "cleanup": "rm -rf dist",
+    "build": "yarn cleanup && yarn concurrently --kill-others-on-fail 'yarn:build:*'",
     "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
