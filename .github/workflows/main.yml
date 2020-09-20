@@ -21,13 +21,13 @@ jobs:
           key: ${{ matrix.node-version }}-${{ runner.OS }}-build-${{ hashFiles('package.json') }}
       - name: Build
         if: steps.cache-modules.outputs.cache-hit != 'true'
-        run: npm install
+        run: yarn
       - name: Check formatting
-        run: npm run prettier:check
+        run: yarn prettier:check
       - name: Lint
-        run: npm run lint
+        run: yarn lint
       - name: Test
-        run: npm test
+        run: yarn test
 
   # While I'm exploring an approach to incorporate 2FA into the automatic
   # publishing process, I'm commenting it out.
