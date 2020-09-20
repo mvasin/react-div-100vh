@@ -1,10 +1,20 @@
 import React, { useState, useEffect, HTMLAttributes } from 'react'
 
+let warned = false
+
 export default function Div100vh({
   style = {},
   ...other
 }: HTMLAttributes<HTMLDivElement>): JSX.Element {
   const height = use100vh()
+
+  // TODO: warn only in development
+  if (!warned && style.height) {
+    warned = true
+    console.warn(
+      '<ReactDiv100vh /> overrides the height property of the style prop'
+    )
+  }
   const styleWithRealHeight = {
     ...style,
     height: height ? `${height}px` : '100vh'
