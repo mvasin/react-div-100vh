@@ -17,8 +17,5 @@
   },
   "devDependencies": {
     "serve": "^11.3.2"
-  },
-  "resolutions": {
-    "node-forge": "0.10.0"
   }
 }

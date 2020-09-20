@@ -22,5 +22,8 @@
     "ts-jest": "^26",
     "ts-node": "^9",
     "typescript": "^4"
+  },
+  "resolutions": {
+    "node-forge": "0.10.0"
   }
 }
