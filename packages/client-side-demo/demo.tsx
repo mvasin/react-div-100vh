@@ -1,26 +1,17 @@
-import React, { FC, ReactNode } from 'react'
-import { use100vh } from 'react-div-100vh'
+import React from 'react'
+import Div100vh from 'react-div-100vh'
 
-const Div100vh: FC = ({ children }: { children?: ReactNode }) => {
-  const realHeight = use100vh()
-  return (
-    <div
-      style={{
-        height: realHeight ? `${realHeight}px` : '100vh',
-        background: 'lightblue',
-        display: 'flex',
-        flexDirection: 'column'
-      }}
-    >
-      {children}
-    </div>
-  )
-}
+const style = {
+  background: 'lightblue',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '500px'
+} as const
 
 export function Demo(): JSX.Element {
   return (
     <div>
-      <Div100vh>
+      <Div100vh style={style}>
         <div style={{ flex: 'auto', padding: '1rem' }}>
           <h1>
             The <code>Div100vh</code> / <code>use100vh</code> demo
