@@ -6515,11 +6515,6 @@ rc@^1.0.1, rc@^1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-div-100vh@*:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/react-div-100vh/-/react-div-100vh-0.5.0.tgz#493c5fc3a5dd49b92232f91464c6e2129246eb2e"
-  integrity sha512-2qEYAS83bfHPmzvucMbtCugSiDou4XG6zZZBkF53o5n3Ce1/Zpn6SJxsmCNq8TSb8yInxqjvIwf/yIsoLypVfA==
-
 react-dom@16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"

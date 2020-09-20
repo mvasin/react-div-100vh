@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "parcel --out-dir dist index.html",
-    "build": "parcel build --out-dir dist index.html",
+    "build": "rm -rf dist && parcel build --out-dir dist index.html",
     "serve": "npx serve dist"
   },
   "dependencies": {
