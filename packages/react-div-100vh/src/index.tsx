@@ -32,12 +32,12 @@ export function use100vh(): number | null {
 
     function setMeasuredHeight() {
       const measuredHeight = measureHeight()
-      if (height !== measuredHeight) setHeight(measuredHeight)
+      setHeight(measuredHeight)
     }
 
     window.addEventListener('resize', setMeasuredHeight)
     return () => window.removeEventListener('resize', setMeasuredHeight)
-  }, [height, wasRenderedOnClientAtLeastOnce])
+  }, [wasRenderedOnClientAtLeastOnce])
   return wasRenderedOnClientAtLeastOnce ? height : null
 }
 
@@ -57,10 +57,10 @@ function useWasRenderedOnClientAtLeastOnce() {
   ] = useState(false)
 
   useEffect(() => {
-    if (isClient() && !wasRenderedOnClientAtLeastOnce) {
+    if (isClient()) {
       setWasRenderedOnClientAtLeastOnce(true)
     }
-  }, [wasRenderedOnClientAtLeastOnce])
+  }, [])
   return wasRenderedOnClientAtLeastOnce
 }
 
