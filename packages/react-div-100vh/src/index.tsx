@@ -23,7 +23,7 @@ export default function Div100vh({
 }
 
 export function use100vh(): number | null {
-  const [height, setHeight] = useState<number | null>(measureHeight())
+  const [height, setHeight] = useState<number | null>(measureHeight)
 
   const wasRenderedOnClientAtLeastOnce = useWasRenderedOnClientAtLeastOnce()
 
