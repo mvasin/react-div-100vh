@@ -1,6 +1,6 @@
 {
   "name": "react-div-100vh",
-  "version": "0.5.1",
+  "version": "0.5.5",
   "description": "A workaround for the '100vh' issue in mobile browsers",
   "license": "MIT",
   "main": "dist/cjs/index.js",
