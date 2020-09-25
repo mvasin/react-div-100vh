@@ -1,3 +1,7 @@
+## 0.5.3 (Sep 24, 2020)
+
+- Adds typescript declarations to dist (@tachnik)
+
 ## 0.5.0 (Aug 27, 2020)
 
 - [BREAKING CHANGE] `use100vh` returns `null` in Node (when server-side rendered)(@mvasin)
