@@ -65,5 +65,5 @@ function useWasRenderedOnClientAtLeastOnce() {
 }
 
 function isClient() {
-  return typeof window !== 'undefined'
+  return typeof window !== 'undefined' && typeof document !== 'undefined'
 }
