@@ -13,6 +13,7 @@
     "build:types": "yarn tsc -p tsconfig-types.json",
     "cleanup": "rm -rf dist",
     "build": "yarn cleanup && yarn concurrently --kill-others-on-fail 'yarn:build:*'",
+    "release": "standard-version",
     "prepublishOnly": "yarn build"
   },
   "peerDependencies": {
@@ -32,6 +33,7 @@
     "prettier": "^2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "standard-version": "^9.0.0",
     "ts-jest": "^26",
     "ts-node": "^9",
     "typescript": "^4"
@@ -42,5 +44,10 @@
     "type": "git",
     "url": "git@github.com:mvasin/react-div-100vh.git",
     "directory": "packages/react-div-100vh"
+  },
+  "standard-version": {
+    "skip": {
+      "changelog": true
+    }
   }
 }
