@@ -8,9 +8,9 @@
     "lint": "eslint packages/react-div-100vh/src",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
-    "build": "yarn workspace client-side-demo build",
+    "build": "yarn workspace test-app build",
     "prebuild": "yarn workspace react-div-100vh build",
-    "serve": "yarn workspace client-side-demo serve"
+    "serve": "yarn workspace test-app serve"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4",
