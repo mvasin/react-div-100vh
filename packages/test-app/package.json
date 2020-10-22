@@ -1,6 +1,6 @@
 {
   "name": "test-app",
-  "description": "An example of client-side rendered app",
+  "description": "An app to showcase and test react-div-100vh",
   "version": "0.0.1",
   "license": "MIT",
   "private": true,
