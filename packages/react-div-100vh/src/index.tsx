@@ -1,26 +1,27 @@
-import React, { useState, useEffect, HTMLAttributes } from 'react'
+import React, { forwardRef, useState, useEffect, HTMLAttributes } from 'react'
 
 let warned = false
 
-export default function Div100vh({
-  style = {},
-  ...other
-}: HTMLAttributes<HTMLDivElement>): JSX.Element {
-  const height = use100vh()
+const Div100vh = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ style, ...other }, ref) => {
+    const height = use100vh()
 
-  // TODO: warn only in development
-  if (!warned && style.height) {
-    warned = true
-    console.warn(
-      '<ReactDiv100vh /> overrides the height property of the style prop'
-    )
+    // TODO: warn only in development
+    if (!warned && style?.height) {
+      warned = true
+      console.warn(
+        '<ReactDiv100vh /> overrides the height property of the style prop'
+      )
+    }
+    const styleWithRealHeight = {
+      ...style,
+      height: height ? `${height}px` : '100vh'
+    }
+    return <div ref={ref} style={styleWithRealHeight} {...other} />
   }
-  const styleWithRealHeight = {
-    ...style,
-    height: height ? `${height}px` : '100vh'
-  }
-  return <div style={styleWithRealHeight} {...other} />
-}
+)
+
+export default Div100vh
 
 export function use100vh(): number | null {
   const [height, setHeight] = useState<number | null>(measureHeight)
