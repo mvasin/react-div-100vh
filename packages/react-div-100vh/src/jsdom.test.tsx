@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { render, unmountComponentAtNode } from 'react-dom'
 import Div100vh from '.'
 import { act } from 'react-dom/test-utils'
@@ -58,5 +58,38 @@ describe('Div100vh component', () => {
       (args) => args[0] === 'resize'
     )
     expect(resizeListenerUnmountCalls.length).toBe(1)
+  })
+
+  it('forwards ref', () => {
+    let focus: () => void
+    const TestApp = () => {
+      const ref = useRef<HTMLDivElement>(null)
+      focus = () => {
+        ref.current?.focus()
+      }
+      return (
+        <Div100vh
+          ref={ref}
+          // so we look up the target div by different means (not via the ref)
+          data-test
+          // https://github.com/jsdom/jsdom/issues/2586#issuecomment-561871527
+          tabIndex={1}
+        >
+          hello
+        </Div100vh>
+      )
+    }
+    act(() => {
+      render(<TestApp />, container)
+    })
+
+    const divElement = container?.querySelector('[data-test]')
+    expect(document.activeElement === divElement).toBe(false)
+
+    act(() => {
+      focus()
+    })
+
+    expect(document.activeElement === divElement).toBe(true)
   })
 })
