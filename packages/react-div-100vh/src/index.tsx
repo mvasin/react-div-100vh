@@ -21,6 +21,8 @@ const Div100vh = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   }
 )
 
+Div100vh.displayName = 'Div100vh'
+
 export default Div100vh
 
 export function use100vh(): number | null {
