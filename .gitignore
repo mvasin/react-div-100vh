@@ -10,3 +10,5 @@ dist
 
 # Yarn
 yarn-error.log
+
+.DS_Store
