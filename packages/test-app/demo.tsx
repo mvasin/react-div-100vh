@@ -53,6 +53,7 @@ export function Demo(): JSX.Element {
               </code>
             </label>
           </div>
+          <br />
           Here is an input field to check the case when keyboard shows up on a
           mobile device:{' '}
           <input
@@ -93,7 +94,7 @@ function RegularDiv({ children }: React.PropsWithChildren<unknown>) {
 }
 
 const Footer = () => (
-  <div style={{ padding: '1rem' }}>
+  <div style={{ padding: '1rem', borderBottom: '1px solid grey' }}>
     Something else goes here after the full window height div.
   </div>
 )

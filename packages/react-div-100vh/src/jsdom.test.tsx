@@ -15,8 +15,6 @@ beforeEach(() => {
 
 afterEach(() => {
   container && document.body.removeChild(container)
-  // have no idea why should it be set to null, just grabbed from
-  // https://reactjs.org/docs/test-utils.html#act
   container = null
 })
 
