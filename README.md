@@ -28,7 +28,17 @@ value of a `vh`.
 More on this issue
 [here](https://nicolas-hoizey.com/2015/02/viewport-height-is-taller-than-the-visible-part-of-the-document-in-some-mobile-browsers.html).
 
-## The solution
+## Installation
+
+```bash
+yarn add react-div-100vh
+
+#or
+
+npm install react-div-100vh
+```
+
+## Usage
 
 `Div100vh` React component is the default export:
 
