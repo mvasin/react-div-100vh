@@ -61,7 +61,8 @@ const MyHalfHeightExampleComponent = ({ children }) => {
 
 Under the hood `use100vh` uses `measureHeight` function which is exported as
 well, so feel free to use it, even without React. Currently it returns
-`document.documentElement?.clientHeight || window.innerHeight` or `null`.
+`document.documentElement?.clientHeight || window.innerHeight` if executed in a
+browser or `null` if on a server.
 
 ## Testing
 
