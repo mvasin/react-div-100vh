@@ -10,7 +10,7 @@ const Div100vh = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     if (!warned && style?.height) {
       warned = true
       console.warn(
-        '<ReactDiv100vh /> overrides the height property of the style prop'
+        '<Div100vh /> overrides the height property of the style prop'
       )
     }
     const styleWithRealHeight = {
