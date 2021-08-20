@@ -4,10 +4,9 @@ let warned = false
 
 const Div100vh = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ style, ...other }, ref) => {
-    const height = use100vh()
-
-    // TODO: warn only in development
-    if (!warned && style?.height) {
+    const height = use100vh()    
+    
+    if (!warned && style?.height && process.env.NODE_ENV === 'development') {
       warned = true
       console.warn(
         '<Div100vh /> overrides the height property of the style prop'
