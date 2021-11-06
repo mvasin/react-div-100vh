@@ -15,8 +15,8 @@ TODO: pre-build the lib in a hook?
 3. Install dependencies: `yarn`
 4. Run unit tests: `yarn test`
 5. Now, to the meat of it: you would like to start a test app that uses the `react-div-100vh` library and browse it around on your mobile device. So you
-5.1 Run `yarn build` - this will first build the library, and then the test app.
-5.2 Run `yarn serve` - this will serve the built app. You will see a message similar to the one below:
+   5.1 Run `yarn build` - this will first build the library, and then the test app.
+   5.2 Run `yarn serve` - this will serve the built app. You will see a message similar to the one below:
 
 ```
    ┌──────────────────────────────────────────────────┐
