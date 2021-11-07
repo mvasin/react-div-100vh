@@ -1,0 +1,144 @@
+<!-- This is a standalone vanilla HTML + JS app for experimenting with various
+ways to extract the 100vh value -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research app</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+        border-color: lightcoral;
+      }
+
+      .flex-parent {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .flex-0 {
+        flex: 1 1 0;
+      }
+
+      .border-dotted {
+        border-style: dotted;
+      }
+
+      .border-solid {
+        border-style: solid;
+      }
+
+      .overflow-auto {
+        overflow: auto;
+      }
+
+      .bg-blue {
+        background-color: lightblue;
+      }
+
+      .bg-gray {
+        background-color: lightgray;
+      }
+
+      .bg-green {
+        background-color: lightgreen;
+      }
+
+      .bg-yellow {
+        background-color: lightyellow;
+      }
+
+      .bg-red {
+        background-color: lightred;
+      }
+
+      .flex-centered {
+        align-self: center;
+      }
+
+      .text-centered {
+        text-align: center;
+      }
+
+      .vh100 {
+        height: 100vh;
+      }
+
+      .fixed {
+        position: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- the 100vh container -->
+    <div class="flex-parent bg-blue vh100">
+      <!-- the content above the button -->
+      <div class="flex-parent dotted-border">
+        <p class="text-centered">
+          <button data-print-to-log class="bg-green flex-centered">
+            log clientHeight and innerHeight
+          </button>
+          <button data-clear-log class="bg-red flex-centered">clear log</button>
+          <br />
+          The blue area is a <code>div</code> with
+          <code>style="height: 100vh"</code>. <br />There is another button at
+          the bottom of the screen which might be covered...
+        </p>
+      </div>
+      <div id="log" class="overflow-auto bg-gray flex-0"></div>
+
+      <!-- the buttons under risk -->
+      <div style="text-align: center;">
+      <button data-print-to-log class="bg-green">
+        log clientHeight and innerHeight
+      </button>
+      <button data-clear-log class="bg-red">clear log</button>
+      </div>
+    </div>
+
+    <div class="bg-yellow" style="height: 1000px">Extra space</div>
+
+    <script>
+      window.addEventListener('resize', log)
+      // Note: clientHeight and innerHeight measured within the
+      // orientationchange event are broken. So I just use the resize event -
+      // it's fired after orientation change as well.
+      //
+      // window.addEventListener('orientationchange', log)
+      //
+      // isn't needed as resize is also fired.
+      // window.addEventListener('orientationchange', () => setTimeout(() =>
+      // log({type: 'orientationchange delayed'}), 500))
+      window.onload = (event) => {
+        for (button of document.querySelectorAll('[data-print-to-log]')) {
+          button.addEventListener('click', log)
+        }
+        for (button of document.querySelectorAll('[data-clear-log]')) {
+          button.addEventListener('click', clearLog)
+        }
+        log(event)
+      }
+
+      function log(event) {
+        const data = {
+          time: new Date().toISOString().substr(11, 8),
+          on: event.type,
+          innerHeight: window.innerHeight,
+          clientHeight: document.documentElement.clientHeight
+        }
+
+        console.log(data)
+        document.getElementById('log').prepend(JSON.stringify(data))
+      }
+
+      function clearLog() {
+        document.getElementById('log').textContent = ''
+      }
+    </script>
+  </body>
+</html>
