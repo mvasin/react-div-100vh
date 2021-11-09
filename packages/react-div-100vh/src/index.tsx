@@ -46,7 +46,7 @@ export function use100vh(): number | null {
 
 export function measureHeight(): number | null {
   if (!isClient()) return null
-  return document.documentElement?.clientHeight || window.innerHeight
+  return window.innerHeight
 }
 
 // Once we ended up on the client, the first render must look the same as on
