@@ -2,8 +2,24 @@ import React, { forwardRef, useState, useEffect, HTMLAttributes } from 'react'
 
 let warned = false
 
-const Div100vh = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ style, ...other }, ref) => {
+type PropsOf<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  E extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>
+> = JSX.LibraryManagedAttributes<E, React.ComponentPropsWithRef<E>>
+
+export interface OwnProps<E extends React.ElementType = React.ElementType> {
+  as?: E
+  style?: React.CSSProperties
+}
+
+export type Props<E extends React.ElementType> = OwnProps<E> &
+  Omit<PropsOf<E>, keyof OwnProps>
+
+const defaultElement = 'div'
+
+const Div100vh = React.forwardRef(
+  ({ as, style, ...other }: OwnProps, ref: React.Ref<Element>) => {
+    const Element = as || defaultElement
     const height = use100vh()
 
     // TODO: warn only in development
@@ -17,11 +33,11 @@ const Div100vh = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
       ...style,
       height: height ? `${height}px` : '100vh'
     }
-    return <div ref={ref} style={styleWithRealHeight} {...other} />
+    return <Element ref={ref} style={styleWithRealHeight} {...other} />
   }
-)
-
-Div100vh.displayName = 'Div100vh'
+) as <E extends React.ElementType = typeof defaultElement>(
+  props: Props<E>
+) => JSX.Element
 
 export default Div100vh
 
@@ -54,10 +70,8 @@ export function measureHeight(): number | null {
 // schedule a subsequent update and return the height measured on the client.
 // It's not needed for CSR-only apps, but is critical for SSR.
 function useWasRenderedOnClientAtLeastOnce() {
-  const [
-    wasRenderedOnClientAtLeastOnce,
-    setWasRenderedOnClientAtLeastOnce
-  ] = useState(false)
+  const [wasRenderedOnClientAtLeastOnce, setWasRenderedOnClientAtLeastOnce] =
+    useState(false)
 
   useEffect(() => {
     if (isClient()) {
